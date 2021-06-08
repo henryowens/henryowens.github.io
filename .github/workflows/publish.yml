@@ -12,6 +12,5 @@ jobs:
       - uses: actions/checkout@v1
       - run: npm install
       - run: npm run build
-      - run: npm publish --access public
       - run: git push -f git@github.com:henryowens/henryowens.github.io.git main
       - run: git push -f git@github.com:henryowens/henryowens.git main:gh-pages
