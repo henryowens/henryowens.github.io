@@ -14,13 +14,13 @@ export default class App extends Vue {}
 
 <style>
 #app {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
 }
+
 #page {
-  flex: 1;
-  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 10px;
 }
 </style>

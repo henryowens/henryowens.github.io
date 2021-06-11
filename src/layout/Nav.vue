@@ -2,7 +2,6 @@
   <div :class="wrapperStyle">
     <div :class="widthStyle">
       <router-link to="home" :class="nameStyle">Henry Owens</router-link>
-
       <div class="links">
         <a href="https://github.com/henryowens">
           <font-awesome-icon :icon="['fab', 'github']" class="nav-icon" />
