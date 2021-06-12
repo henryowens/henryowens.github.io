@@ -136,6 +136,8 @@ export default class Home extends Vue {
           "neighbourhood",
           resp.data.address.neighbourhood
         );
+        this.place.town = resp.data.address.town;
+        this.place.neighbourhood = resp.data.address.neighbourhood;
       });
     });
     setInterval(async () => {
