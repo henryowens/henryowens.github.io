@@ -130,7 +130,6 @@ export default class Home extends Vue {
     navigator.geolocation.getCurrentPosition((result) => {
       const { latitude, longitude } = result.coords;
       getLocation(latitude.toString(), longitude.toString()).then((resp) => {
-        console.log(resp.data);
         sessionStorage.setItem("town", resp.data.address.town);
         sessionStorage.setItem(
           "neighbourhood",
