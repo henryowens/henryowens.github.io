@@ -13,6 +13,10 @@
         </div>
         <div class="console">
           <p>[henryowens.net]: ⚠️ Site under construction 🏗️</p>
+          <p>
+            [henryowens.net]: Thanks for checking in from
+            {{ place.neighbourhood }}, {{ place.town }}
+          </p>
           <p v-for="(message, x) in messages" :key="x">
             [henryowens.net]: {{ message }}
           </p>
@@ -48,8 +52,17 @@ import { Options, Vue } from "vue-class-component";
 import Maintainence from "@/components/Maintainence/Maintainence.vue";
 import { style } from "typestyle";
 import { px } from "csx";
+import axios, { AxiosResponse } from "axios";
 
-@Options({ components: { Maintainence } })
+function getLocation(lat: string, long: string): Promise<AxiosResponse> {
+  return axios.get(
+    `https://eu1.locationiq.com/v1/reverse.php?key=pk.989bdd4b49af44bf5359224d3f390579&lat=${lat}&lon=${long}&format=json`
+  );
+}
+
+@Options({
+  components: { Maintainence },
+})
 export default class Home extends Vue {
   public cursorActive = false;
   public text = "";
@@ -59,6 +72,12 @@ export default class Home extends Vue {
   };
 
   public messages: string[] = [];
+
+  public place = {
+    neighbourhood: sessionStorage.getItem("neighbourhood"),
+    town: sessionStorage.getItem("town"),
+  };
+
   // public messages = ["web dev", "typescript", "vue js"];
   // public activeText = "";
   // public activeMessage = 0;
@@ -108,6 +127,17 @@ export default class Home extends Vue {
   }
 
   public mounted(): void {
+    navigator.geolocation.getCurrentPosition((result) => {
+      const { latitude, longitude } = result.coords;
+      getLocation(latitude.toString(), longitude.toString()).then((resp) => {
+        console.log(resp.data);
+        sessionStorage.setItem("town", resp.data.address.town);
+        sessionStorage.setItem(
+          "neighbourhood",
+          resp.data.address.neighbourhood
+        );
+      });
+    });
     setInterval(async () => {
       this.cursorActive = !this.cursorActive;
 
