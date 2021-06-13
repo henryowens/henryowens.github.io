@@ -380,6 +380,12 @@ span.console p::after {
 }
 
 @media screen and (max-width: 550px) {
+  .console {
+    padding: 10px 15px;
+  }
+  .console .input-wrapper {
+    margin-top: 15px;
+  }
   .console-item .pretext {
     display: none;
   }
@@ -407,9 +413,5 @@ span.console p::after {
   margin: 0;
   height: auto !important;
   padding-top: 7px;
-}
-
-.console-item .input-wrapper {
-  margin-top: 15px;
 }
 </style>
