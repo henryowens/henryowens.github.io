@@ -1,6 +1,10 @@
 <template>
   <ho-nav />
-  <div id="page"><router-view /></div>
+  <div id="page">
+    <transition name="fade">
+      <router-view />
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">

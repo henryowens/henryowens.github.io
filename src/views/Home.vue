@@ -12,12 +12,76 @@
           </div>
         </div>
         <div class="console">
-          <p>[henryowens.net]: ⚠️ Site under construction 🏗️</p>
-          <p>
-            [henryowens.net]: Thanks for checking in from
-            {{ place.neighbourhood }}, {{ place.town }}
+          <p
+            class="console-item"
+            style="text-align: center; width: 100%; display: inline !important"
+          >
+            👋 Hi, I'm Henry
           </p>
-          <p v-for="(message, x) in messages" :key="x">
+          <p
+            class="console-item"
+            style="text-align: center; width: 100%; display: inline !important"
+          >
+            Web Deveoper
+          </p>
+
+          <p class="console-item"></p>
+
+          <p class="console-item" style="margin: 0 auto">
+            <ho-icon name="mongodb" style="height: 26px" />
+            <span> | </span>
+            <ho-icon name="typescript" style="height: 26px" />
+            <span> | </span>
+            <ho-icon name="vuejs" style="height: 26px" />
+            <span> | </span>
+            <ho-icon name="nodejs" class="node-style" style="height: 26px" />
+            <!-- <font-awesome-icon
+              :icon="['fab', 'node']"
+              style="
+                color: #68a063;
+                height: 26px !important;
+                width: auto !important;
+              "
+            /> -->
+          </p>
+
+          <p class="console-item"></p>
+          <p class="console-item"></p>
+          <p class="console-item"></p>
+          <p class="console-item"></p>
+
+          <p class="console-item">
+            <span class="pretext">[henryowens.net]:</span>
+            <span class="emoji">📁</span>
+            <router-link to="portfolio">Portfolio </router-link>
+          </p>
+
+          <p class="console-item" style="display: flex">
+            <span class="pretext">[henryowens.net]:</span>
+            <span class="emoji">
+              <ho-icon name="npm" class="custom" />
+            </span>
+            <router-link to="packages" style="display: flex">
+              Packages</router-link
+            >
+          </p>
+
+          <p class="console-item">
+            <span class="pretext">[henryowens.net]:</span>
+            <span class="emoji">📧</span>
+            <router-link to="contact">Contact</router-link>
+          </p>
+
+          <p class="console-item"></p>
+          <p class="console-item"></p>
+          <p class="console-item"></p>
+          <p class="console-item"></p>
+
+          <p class="console-item">
+            [henryowens.net]: Thanks for checking in from
+            {{ place.neighbourhood }}, {{ place.town }} 📍
+          </p>
+          <p class="console-item" v-for="(message, x) in messages" :key="x">
             [henryowens.net]: {{ message }}
           </p>
           <p>
@@ -180,7 +244,7 @@ export default class Home extends Vue {
 }
 </script>
 
-<style scoped>
+<style>
 /* .landing {
   height: calc(100vh - 105px);
 } */
@@ -295,5 +359,47 @@ span.console p::after {
 
 .console input:focus {
   outline: none;
+}
+
+.console a {
+  color: #aba7a7;
+}
+.console a:hover,
+.console a:focus {
+  color: #fff;
+}
+
+.console .console-item {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  min-height: 26px;
+}
+.console-item .pretext {
+  padding-right: 7px;
+}
+
+.console-item .icons-container {
+  display: grid;
+  grid-template-columns: 40px 20px 40px 20px 35px 20px 65px;
+  grid-gap: 6px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-style svg {
+  width: auto !important;
+}
+
+.emoji {
+  min-width: 28px;
+  margin-right: 5px;
+}
+
+.emoji .custom svg {
+  margin: 0;
+  height: auto !important;
+  padding-top: 7px;
 }
 </style>
