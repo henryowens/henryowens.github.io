@@ -78,13 +78,13 @@
           <p class="console-item"></p>
 
           <p class="console-item">
-            [henryowens.net]: Thanks for checking in from
-            {{ place.neighbourhood }}, {{ place.town }} 📍
+            <span class="pretext">[henryowens.net]:</span> Thanks for checking
+            in from {{ place.neighbourhood }}, {{ place.town }} 📍
           </p>
           <p class="console-item" v-for="(message, x) in messages" :key="x">
-            [henryowens.net]: {{ message }}
+            <span class="pretext">[henryowens.net]:</span> {{ message }}
           </p>
-          <p>
+          <p class="input-wrapper">
             [henryowens.net]:
             <span id="inputWrapper">
               <input
@@ -294,7 +294,7 @@ span.console p::after {
 .header {
   margin: 40px auto;
   overflow: hidden;
-  width: 750px;
+  max-width: 750px;
 }
 .top-bar {
   background: linear-gradient(0deg, rgb(28, 28, 30), rgb(44, 44, 46));
@@ -379,6 +379,12 @@ span.console p::after {
   padding-right: 7px;
 }
 
+@media screen and (max-width: 550px) {
+  .console-item .pretext {
+    display: none;
+  }
+}
+
 .console-item .icons-container {
   display: grid;
   grid-template-columns: 40px 20px 40px 20px 35px 20px 65px;
@@ -401,5 +407,9 @@ span.console p::after {
   margin: 0;
   height: auto !important;
   padding-top: 7px;
+}
+
+.console-item .input-wrapper {
+  margin-top: 15px;
 }
 </style>

@@ -20,11 +20,12 @@ export default class App extends Vue {}
 #app {
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 #page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 80px 10px;
+  padding: 0 10px;
 }
 </style>
